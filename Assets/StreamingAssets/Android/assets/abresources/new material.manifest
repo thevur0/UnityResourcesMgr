@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 1166944810
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1793516100fd80465ed3454be2fd7fed
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 51a16e16d5113854a16091e54ae5bb0d
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/ABResources/New Material.mat
+Dependencies:
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Android/assets/abresources/newunlitshader

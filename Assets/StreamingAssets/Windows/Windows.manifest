@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 1594870137
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: assets/abresources/cube
+      Dependencies:
+        Dependency_0: assets/abresources/new material
+    Info_1:
+      Name: assets/abresources/new material
+      Dependencies:
+        Dependency_0: assets/abresources/newunlitshader
+    Info_2:
+      Name: assets/abresources/newunlitshader
+      Dependencies: {}
+    Info_3:
+      Name: assets/abresources/newunlitshader 1
+      Dependencies: {}
