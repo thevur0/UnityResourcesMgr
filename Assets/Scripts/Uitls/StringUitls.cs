@@ -9,6 +9,7 @@ public class StringUitls
 {
     static public string WithoutExtension(string sPath, bool bLower = false)
     {
+        UnityEngine.Debug.Log(sPath);
         if(bLower)
             return sPath.Substring(0, sPath.LastIndexOf('.')).ToLower();
         else

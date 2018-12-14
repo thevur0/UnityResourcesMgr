@@ -6,13 +6,15 @@ public class ABInfo
 {
     static ABAssetLoader m_ABLoader = null;
     public string Path { get; protected set; }
+    public string ABName { get; protected set; }
     private AssetBundle Bundle { get; set; }
     string m_AssetBundlePath = string.Empty;
-    public ABInfo(string sPath)
+    public ABInfo(string sABName)
     {
         m_ABLoader = ABAssetLoader.Loader;
         m_AssetBundlePath = StringUitls.PathCombine(Application.streamingAssetsPath, CrossPlatform.GetABDir());
-        Path = StringUitls.PathCombine(m_AssetBundlePath,sPath);
+        ABName = sABName;
+        Path = StringUitls.PathCombine(m_AssetBundlePath, sABName);
         
     }
     public T LoadAsset<T>(string sAsset) where T: UnityEngine.Object
@@ -24,17 +26,19 @@ public class ABInfo
         }
         return t;
     }
-    public void LoadAB()
+    public void LoadAB(bool bDepend = true)
     {
         if (Bundle == null)
         {
             Bundle = AssetBundle.LoadFromFile(Path);
-
-            string[] assetbundles = m_ABLoader.GetAllDependencies(Path);
-            for (int i = 0; i < assetbundles.Length; i++)
+            if(bDepend)
             {
-                ABInfo abInfo = new ABInfo(assetbundles[i]);
-                abInfo.LoadAB();
+                string[] assetbundles = m_ABLoader.GetAllDependencies(ABName);
+                for (int i = 0; i < assetbundles.Length; i++)
+                {
+                    ABInfo abInfo = new ABInfo(assetbundles[i]);
+                    abInfo.LoadAB(false);
+                }
             }
         }
     }
@@ -49,22 +53,21 @@ public class ABInfo
     
 }
 
-public class ABAssetInfo<T>
+public class ABAssetInfo<T> where T: UnityEngine.Object
 {
     public ABAssetInfo(string sPath)
     {
         m_ABLoader = ABAssetLoader.Loader;
-        Path = sPath;
+        Path = sPath.ToLower();
     }
     public string Path { get; protected set; }
     public T Asset { get; protected set; }
     static ABAssetLoader m_ABLoader = null;
-    public T Load()
+    public void Load()
     {
-        T t = default(T);
         ABInfo abInfo = new ABInfo(m_ABLoader.GetAssetBundleFromAsset(Path));
         abInfo.LoadAB();
-        return t;
+        Asset = abInfo.LoadAsset<T>(Path);
     }
     public void LoadAsync()
     {
@@ -89,17 +92,9 @@ public class ABAssetLoader : IAssetLoader {
 
     private void LoadAssetBundleManifest()
     {
-
-        ABAssetInfo<AssetBundleManifest> abAssetInfo = new ABAssetInfo<AssetBundleManifest>(CrossPlatform.GetABDir());
+        ABAssetInfo<AssetBundleManifest> abAssetInfo = new ABAssetInfo<AssetBundleManifest>("AssetBundleManifest");
         abAssetInfo.Load();
         m_Manifest = abAssetInfo.Asset;
-        //ABInfo abInfo = new ABInfo();
-        //var bundle = AssetBundle.LoadFromFile();
-        //m_Manifest = bundle.LoadAllAssets<AssetBundleManifest>();
-
-
-        //bundle.Unload(false);
-        //bundle = null;
     }
     public string GetAssetBundleFromAsset(string sAsset)
     {
@@ -114,7 +109,10 @@ public class ABAssetLoader : IAssetLoader {
     }
     public string[] GetAllDependencies(string sAssetBundleName)
     {
-        return m_Manifest.GetAllDependencies(sAssetBundleName);
+        if (m_Manifest == null)
+            return new string[] { };
+        else
+            return m_Manifest.GetAllDependencies(sAssetBundleName);
     }
     private void LoadFileList()
     {
@@ -123,10 +121,15 @@ public class ABAssetLoader : IAssetLoader {
 
     public T LoadAsset<T>(string sPath) where T : UnityEngine.Object
     {
-        return Resources.Load<T>(sPath);
+        ABAssetInfo<T> abAssetInfo = new ABAssetInfo<T>(sPath);
+        abAssetInfo.Load();
+        return abAssetInfo.Asset;
     }
     public int LoadAssetAsync<T>(string sPath, ResourceMgr.AssetLoadCompleted OnAssetLoadCompleted) where T : UnityEngine.Object
     {
+        ABAssetInfo<T> abAssetInfo = new ABAssetInfo<T>(sPath);
+        abAssetInfo.Load();
+        OnAssetLoadCompleted(0,abAssetInfo.Asset);
         return 0;
     }
 

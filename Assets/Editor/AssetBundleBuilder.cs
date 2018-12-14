@@ -34,14 +34,20 @@ public class AssetBundleBuilder
         string sOutputPath = StringUitls.PathCombine(GetOutputDir(buildTarget), m_FileList);
         Dictionary<string, string> dicFileList = new Dictionary<string, string>();
         string sPlatformDir = CrossPlatform.GetABOutputDir(buildTarget);
-        dicFileList.Add(sPlatformDir,sPlatformDir);
+        dicFileList.Add("AssetBundleManifest".ToLower(), sPlatformDir);
         foreach (var abBuild in assetBundleBuilds)
         {
             foreach (var asset in abBuild.assetNames)
             {
-                if (!dicFileList.ContainsKey(asset))
+                string sAssetName = asset;
+                if (asset.IndexOf(m_ResourcePath.ToLower()) == 0)
                 {
-                    dicFileList.Add(asset, abBuild.assetBundleName);
+                    sAssetName = asset.Substring(m_ResourcePath.Length + 1);
+                }
+                
+                if (!dicFileList.ContainsKey(sAssetName))
+                {
+                    dicFileList.Add(sAssetName, abBuild.assetBundleName);
                 }
             }
         }
@@ -54,7 +60,13 @@ public class AssetBundleBuilder
         List<AssetBundleBuild> m_listAssetBundleBuild = new List<AssetBundleBuild>();
         foreach (string sGUID in sAllGUIDs)
         {
+            
+
             string sPath = AssetDatabase.GUIDToAssetPath(sGUID).ToLower();
+            if (AssetDatabase.IsValidFolder(sPath))
+            {
+                continue;
+            }
             string sABName = StringUitls.WithoutExtension(sPath);
             AssetBundleBuild assetBundleBuild = new AssetBundleBuild();
             assetBundleBuild.assetBundleName = sABName;
