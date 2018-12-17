@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 3012008528
+CRC: 275527630
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -15,4 +15,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_3:
       Name: assets/abresources/newunlitshader 1
+      Dependencies: {}
+    Info_4:
+      Name: assets/abresources/scenes/myterrainscene
       Dependencies: {}
