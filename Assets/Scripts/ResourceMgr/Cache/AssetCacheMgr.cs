@@ -72,10 +72,10 @@ public class AssetCacheMgr : Singleton<AssetCacheMgr> {
         }
     }
 
-    public void Destory()
+    public void Destroy()
     {
         m_DicAssetInfo.Clear();
-        m_ABCache.Destory();
-        m_AssetCache.Destory();
+        m_ABCache.Destroy();
+        m_AssetCache.Destroy();
     }
 }

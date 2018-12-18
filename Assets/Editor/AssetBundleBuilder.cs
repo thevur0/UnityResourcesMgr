@@ -5,18 +5,17 @@ using UnityEditor;
 using System.IO;
 public class AssetBundleBuilder
 {
-    static string m_ResourcePath = @"Assets/ABResources";
-    static string m_FileList = @"filelist.json";
-    static public string ResourcePath { get { return m_ResourcePath; } }
+    static ResourceSetting ms_ResourceSetting = null;
     static private void BuildAssetBundle(BuildTarget buildTarget)
     {
+        ms_ResourceSetting = Resources.Load<ResourceSetting>("ResSetting");
         string sOutputPath = GetOutputDir(buildTarget);
         if (!Directory.Exists(sOutputPath))
         {
             Directory.CreateDirectory(sOutputPath);
         }
 
-        AssetBundleBuild[] assetBundleBuilds = GetAssetBundleBuilds(m_ResourcePath);
+        AssetBundleBuild[] assetBundleBuilds = GetAssetBundleBuilds(ms_ResourceSetting.ResourcePath);
         AssetBundleManifest assetBundleManifest = BuildPipeline.BuildAssetBundles(sOutputPath, assetBundleBuilds, BuildAssetBundleOptions.ChunkBasedCompression, buildTarget);
         if (assetBundleManifest != null)
         {
@@ -31,7 +30,7 @@ public class AssetBundleBuilder
 
     static void CreateFileList(BuildTarget buildTarget, AssetBundleBuild[] assetBundleBuilds)
     {
-        string sOutputPath = StringUitls.PathCombine(GetOutputDir(buildTarget), m_FileList);
+        string sOutputPath = StringUitls.PathCombine(GetOutputDir(buildTarget), ms_ResourceSetting.FileList);
         Dictionary<string, string> dicFileList = new Dictionary<string, string>();
         string sPlatformDir = CrossPlatform.GetABOutputDir(buildTarget);
         dicFileList.Add("AssetBundleManifest".ToLower(), sPlatformDir);
@@ -40,9 +39,9 @@ public class AssetBundleBuilder
             foreach (var asset in abBuild.assetNames)
             {
                 string sAssetName = asset;
-                if (asset.IndexOf(m_ResourcePath.ToLower()) == 0)
+                if (asset.IndexOf(ms_ResourceSetting.ResourcePath.ToLower()) == 0)
                 {
-                    sAssetName = asset.Substring(m_ResourcePath.Length + 1);
+                    sAssetName = asset.Substring(ms_ResourceSetting.ResourcePath.Length + 1);
                 }
                 
                 if (!dicFileList.ContainsKey(sAssetName))

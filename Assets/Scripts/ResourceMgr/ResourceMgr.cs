@@ -4,20 +4,30 @@ using UnityEngine;
 
 public sealed class ResourceMgr : Singleton<ResourceMgr> {
 
+    ResourceSetting ResourceSetting { get; set; }
     IAssetLoader m_Loader = null;
     public delegate void AssetLoadCompleted(int iHandle, UnityEngine.Object obj);
-    public void Init()
+    public void Init(string sResSetting)
     {
-        switch (Main.ResourceMode)
+        LoadResSetting(sResSetting);
+        CreateLoader();
+    }
+    void LoadResSetting(string sResSetting)
+    {
+        ResourceSetting = Resources.Load<ResourceSetting>(sResSetting);
+    }
+    void CreateLoader()
+    {
+        switch (ResourceSetting.ResMode)
         {
-            case Main.ResLoadMode.Resource:
+            case ResourceSetting.ResLoadMode.Resource:
                 m_Loader = new ResAssetLoader();
                 break;
-            case Main.ResLoadMode.AssetDatabase:
-                m_Loader = new EditorAssetLoader(Main.ResourcePath);
+            case ResourceSetting.ResLoadMode.AssetDatabase:
+                m_Loader = new EditorAssetLoader(ResourceSetting.ResourcePath);
                 break;
-            case Main.ResLoadMode.AssetBundle:
-                m_Loader = new ABAssetLoader();
+            case ResourceSetting.ResLoadMode.AssetBundle:
+                m_Loader = new ABAssetLoader(ResourceSetting.FileList);
                 break;
         }
     }
@@ -50,7 +60,7 @@ public sealed class ResourceMgr : Singleton<ResourceMgr> {
         return iHandle;
     }
 
-    public void DestoryObject(UnityEngine.Object @object)
+    public void DestroyObject(UnityEngine.Object @object)
     {
         int iAssetID = @object.GetInstanceID();
         if (m_PrefabMap.TryGetValue(@object.GetInstanceID(), out iAssetID))
@@ -61,4 +71,14 @@ public sealed class ResourceMgr : Singleton<ResourceMgr> {
         AssetCacheMgr.Instance.ReleaseAsset(iAssetID);
     }
     Dictionary<int, int> m_PrefabMap = new Dictionary<int, int>();
+
+    public void Update()
+    {
+        AssetCacheMgr.Instance.Update();
+    }
+
+    public void Destroy()
+    {
+        AssetCacheMgr.Instance.Destroy();
+    }
 }

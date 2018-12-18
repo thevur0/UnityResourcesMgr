@@ -11,7 +11,13 @@ public class ResAssetLoader : IAssetLoader
     public int LoadAssetAsync<T>(string sPath, ResourceMgr.AssetLoadCompleted OnAssetLoadCompleted) where T : UnityEngine.Object
     {
         ResourceRequest req = Resources.LoadAsync<T>(StringUitls.WithoutExtension(sPath));
-        AsyncOperateMgr.Instance.AddAssetLoad(req, OnAssetLoadCompleted);
+        req.completed += (ao) => {
+            ResourceRequest resourceRequest = ao as ResourceRequest;
+            UnityEngine.Object @object = null;
+            if (resourceRequest != null)
+                @object = resourceRequest.asset;
+            OnAssetLoadCompleted.Invoke(req.GetHashCode(), @object);
+        };
         return req.GetHashCode();
     }
 }

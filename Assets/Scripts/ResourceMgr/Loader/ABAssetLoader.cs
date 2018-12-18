@@ -5,12 +5,14 @@ using UnityEngine;
 public class ABAssetLoader : IAssetLoader {
 
     AssetBundleManifest m_Manifest = null;
+    string m_sFileList = string.Empty;
     Dictionary<string, string> m_FileList = null;
     static ABAssetLoader m_ABLoader = null;
     static public ABAssetLoader Loader { get { return m_ABLoader; } }
     string m_AssetBundlePath = string.Empty;
-    public ABAssetLoader()
+    public ABAssetLoader(string sFileList)
     {
+        m_sFileList = sFileList;
         m_ABLoader = this;
         m_AssetBundlePath = StringUitls.PathCombine(Application.streamingAssetsPath, CrossPlatform.GetABDir());
         LoadFileList();
@@ -41,7 +43,7 @@ public class ABAssetLoader : IAssetLoader {
     }
     private void LoadFileList()
     {
-        m_FileList = IOUitls.ReadJson<Dictionary<string, string>>(StringUitls.PathCombine(m_AssetBundlePath, Main.FileList));
+        m_FileList = IOUitls.ReadJson<Dictionary<string, string>>(StringUitls.PathCombine(m_AssetBundlePath, m_sFileList));
     }
 
     public T LoadAsset<T>(string sPath) where T : UnityEngine.Object

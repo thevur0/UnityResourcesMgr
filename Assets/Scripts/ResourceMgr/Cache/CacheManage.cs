@@ -60,7 +60,7 @@ public class CacheManage
         }
     }
 
-    public void Destory()
+    public void Destroy()
     {
         m_UsedCache.Clear();
         m_UnUsedCache.Clear();
