@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1594870137
+CRC: 304835262
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -7,12 +7,27 @@ AssetBundleManifest:
       Dependencies:
         Dependency_0: assets/abresources/new material
     Info_1:
+      Name: assets/abresources/gamesetting
+      Dependencies: {}
+    Info_2:
       Name: assets/abresources/new material
       Dependencies:
-        Dependency_0: assets/abresources/newunlitshader
-    Info_2:
-      Name: assets/abresources/newunlitshader
-      Dependencies: {}
+        Dependency_0: assets/abresources/test1
     Info_3:
-      Name: assets/abresources/newunlitshader 1
+      Name: assets/abresources/shadervar
+      Dependencies:
+        Dependency_0: assets/abresources/test2
+    Info_4:
+      Name: assets/abresources/test1
       Dependencies: {}
+    Info_5:
+      Name: assets/abresources/test2
+      Dependencies: {}
+    Info_6:
+      Name: assets/abresources/cube1
+      Dependencies:
+        Dependency_0: assets/abresources/new material 1
+    Info_7:
+      Name: assets/abresources/new material 1
+      Dependencies:
+        Dependency_0: assets/abresources/test2

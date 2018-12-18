@@ -43,7 +43,7 @@ public class ABAssetLoader : IAssetLoader {
     }
     private void LoadFileList()
     {
-        m_FileList = IOUitls.ReadJson<Dictionary<string, string>>(StringUitls.PathCombine(m_AssetBundlePath, m_sFileList));
+        m_FileList = IOUitls.ReadJson<Dictionary<string, string>>(StringUitls.PathCombine(m_AssetBundlePath, m_sFileList),true);
     }
 
     public T LoadAsset<T>(string sPath) where T : UnityEngine.Object

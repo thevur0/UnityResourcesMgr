@@ -16,6 +16,7 @@ public class GameMgr : Singleton<GameMgr>
     }
     public void Destroy()
     {
+        ResourceMgr.Instance.DestroyObject(GameSetting);
         ResourceMgr.Instance.Destroy();
     }
 }

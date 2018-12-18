@@ -32,9 +32,17 @@ public class AssetInfo<T> : Cache, ILoad<T> where T : UnityEngine.Object
     }
     public virtual int LoadAsync(IAssetLoader loader, ResourceMgr.AssetLoadCompleted OnAssetLoadCompleted)
     {
-        AssetLoadCompletedEvent += OnAssetLoadCompleted;
-        AssetLoadCompletedEvent += (iHandle, @object)=> { Asset = @object as T;  };
-        return loader.LoadAssetAsync<T>(Path, AssetLoadCompletedEvent);
+        if (Asset == null)
+        {
+            AssetLoadCompletedEvent += OnAssetLoadCompleted;
+            AssetLoadCompletedEvent += (iHandle, @object) => { Asset = @object as T; };
+            return loader.LoadAssetAsync<T>(Path, AssetLoadCompletedEvent);
+        }
+        else
+        {
+            OnAssetLoadCompleted(0, Asset);
+            return 0;
+        }
     }
 
     public override void UnLoad()

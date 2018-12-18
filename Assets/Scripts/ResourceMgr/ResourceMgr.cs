@@ -62,6 +62,9 @@ public sealed class ResourceMgr : Singleton<ResourceMgr> {
 
     public void DestroyObject(UnityEngine.Object @object)
     {
+        if (@object == null)
+            return;
+
         int iAssetID = @object.GetInstanceID();
         if (m_PrefabMap.TryGetValue(@object.GetInstanceID(), out iAssetID))
         {

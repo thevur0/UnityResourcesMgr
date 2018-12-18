@@ -48,4 +48,13 @@ public class CrossPlatform
 #endif
         return sDir;
     }
+
+    static public string GetWWWDir(string sPath)
+    {
+        if (RuntimePlatform.Android != Application.platform)
+        {
+            sPath = StringUitls.PathCombine("file://", sPath);
+        }
+        return sPath;
+    }
 }

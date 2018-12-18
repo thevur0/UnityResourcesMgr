@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: shadervar
+  m_Shaders:
+  - first: {fileID: 4800000, guid: ced8c84d1b82140499f8f7bd266d4f7f, type: 3}
+    second:
+      variants:
+      - keywords: TIME_OFF TIME_OFF1 TIME_OFF2 TIME_OFF3 TIME_OFF4 TIME_OFF5 TIME_OFF6
+          TIME_OFF7 TIME_OFF8 TIME_OFF9
+        passType: 4
+      - keywords: FOG_LINEAR TIME_OFF TIME_OFF1 TIME_OFF2 TIME_OFF3 TIME_OFF4 TIME_OFF5
+          TIME_OFF6 TIME_OFF7 TIME_OFF8 TIME_OFF9
+        passType: 4

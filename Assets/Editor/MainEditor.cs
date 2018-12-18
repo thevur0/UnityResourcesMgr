@@ -11,9 +11,12 @@ public class MainEditor : Editor
         var spIter = serializedObject.GetIterator();
 
         SerializedProperty serializedProperty = serializedObject.FindProperty("ResMode");
-        EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.PropertyField(serializedProperty);
-        EditorGUILayout.EndHorizontal();
-        serializedObject.ApplyModifiedProperties();
+        if(serializedProperty!=null)
+        {
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.PropertyField(serializedProperty);
+            EditorGUILayout.EndHorizontal();
+            serializedObject.ApplyModifiedProperties();
+        }
     }
 }

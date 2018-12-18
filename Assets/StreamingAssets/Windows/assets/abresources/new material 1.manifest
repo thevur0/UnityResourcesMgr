@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 1267025101
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 15d3dda213167c88175f42b3d8dd434e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 51a16e16d5113854a16091e54ae5bb0d
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/ABResources/New Material 1.mat
+Dependencies:
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/assets/abresources/test2
