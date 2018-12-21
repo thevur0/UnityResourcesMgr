@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03cb43d64a187754fb404b0d8fcfb7a7, type: 3}
   m_Name: GameSetting
   m_EditorClassIdentifier: 
+  m_DirSetting:
+    m_LuaDir: Lua

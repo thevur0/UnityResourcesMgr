@@ -38,6 +38,20 @@ public class IOUitls
         return www.text;
     }
 
+    static public byte[] ReadByteFileWWW(string sPath)
+    {
+        WWW www = new WWW(sPath);
+        if (www.error != null)
+        {
+            return null;
+        }
+
+        while (!www.isDone)
+        {
+        }
+        return www.bytes;
+    }
+
     static public void WriteJson(string sPath,object obj)
     {
         string str = JsonMapper.ToJson(obj);

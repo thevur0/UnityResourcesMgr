@@ -84,4 +84,16 @@ public sealed class ResourceMgr : Singleton<ResourceMgr> {
     {
         AssetCacheMgr.Instance.Destroy();
     }
+
+    public byte[] LoadLua(string sFilePath)
+    {
+        TextAsset ta = LoadAsset<TextAsset>(sFilePath);
+        if (ta != null)
+        {
+            byte[] bytes = ta.bytes;
+            DestroyObject(ta);
+            return bytes;
+        }
+        return null;
+    }
 }
