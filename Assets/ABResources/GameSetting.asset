@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DirSetting:
     m_LuaDir: Lua
+  m_LogSetting:
+    m_WriteFile: 1

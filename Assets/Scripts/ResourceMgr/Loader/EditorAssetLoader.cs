@@ -12,7 +12,7 @@ public class EditorAssetLoader : IAssetLoader
     public T LoadAsset<T>(string sPath) where T : UnityEngine.Object
     {
 #if UNITY_EDITOR
-        return UnityEditor.AssetDatabase.LoadAssetAtPath<T>(StringUitls.PathCombine(m_ResourcePath ,sPath));
+        return UnityEditor.AssetDatabase.LoadAssetAtPath<T>(StringUtils.PathCombine(m_ResourcePath ,sPath));
 #else
         return null;
 #endif
@@ -21,7 +21,7 @@ public class EditorAssetLoader : IAssetLoader
     public int LoadAssetAsync<T>(string sPath, ResourceMgr.AssetLoadCompleted OnAssetLoadCompleted) where T : UnityEngine.Object
     {
 #if UNITY_EDITOR
-        T t = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(StringUitls.PathCombine(m_ResourcePath, sPath));
+        T t = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(StringUtils.PathCombine(m_ResourcePath, sPath));
         int obj = 0;
         OnAssetLoadCompleted(obj.GetHashCode(), t);
         return obj.GetHashCode();

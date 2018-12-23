@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2150404729
+CRC: 1449626801
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0e093955259e0094416530e96ff7c90f
+    Hash: 59a0e89ac6e56427f62a3359a593fbfd
   TypeTreeHash:
     serializedVersion: 2
     Hash: 7f0bffc1563fad4b76a0da6fdabbfa72
@@ -15,4 +15,5 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/ABResources/shadervar.shadervariants
-Dependencies: []
+Dependencies:
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Android/assets/abresources/test2

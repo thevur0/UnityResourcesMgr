@@ -15,17 +15,20 @@ public class ABInfo : Cache
     public ABInfo(string sABName, CacheManage mgr):base(mgr)
     {
         m_ABLoader = ABAssetLoader.Loader;
-        m_AssetBundlePath = StringUitls.PathCombine(Application.streamingAssetsPath, CrossPlatform.GetABDir());
+        m_AssetBundlePath = StringUtils.PathCombine(Application.streamingAssetsPath, CrossPlatform.GetABDir());
         ABName = sABName;
-        Path = StringUitls.PathCombine(m_AssetBundlePath, sABName);
-
+        Path = StringUtils.PathCombine(m_AssetBundlePath, sABName);
+    }
+    static string AssetName(string sPath)
+    {
+        return StringUtils.FileName(sPath, false);
     }
     public T LoadAsset<T>(string sAsset) where T : UnityEngine.Object
     {
         T t = default(T);
         if (Bundle != null)
         {
-            t = Bundle.LoadAsset<T>(sAsset);
+            t = Bundle.LoadAsset<T>(AssetName(sAsset));
         }
         return t;
     }
@@ -34,7 +37,7 @@ public class ABInfo : Cache
     {
         if (Bundle != null)
         {
-            AssetBundleRequest abReq = Bundle.LoadAssetAsync<T>(sAsset);
+            AssetBundleRequest abReq = Bundle.LoadAssetAsync<T>(AssetName(sAsset));
             abReq.completed += (ao) => {
                 AssetBundleRequest assetBundleRequest = ao as AssetBundleRequest;
                 if(assetBundleRequest!=null)

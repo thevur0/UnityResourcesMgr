@@ -30,7 +30,7 @@ public class AssetBundleBuilder
 
     static void CreateFileList(BuildTarget buildTarget, AssetBundleBuild[] assetBundleBuilds)
     {
-        string sOutputPath = StringUitls.PathCombine(GetOutputDir(buildTarget), ms_ResourceSetting.FileList);
+        string sOutputPath = StringUtils.PathCombine(GetOutputDir(buildTarget), ms_ResourceSetting.FileList);
         Dictionary<string, string> dicFileList = new Dictionary<string, string>();
         string sPlatformDir = CrossPlatform.GetABOutputDir(buildTarget);
         dicFileList.Add("AssetBundleManifest".ToLower(), sPlatformDir);
@@ -50,7 +50,7 @@ public class AssetBundleBuilder
                 }
             }
         }
-        IOUitls.WriteJson(sOutputPath, dicFileList);
+        IOUtils.WriteJson(sOutputPath, dicFileList);
     }
 
     static private AssetBundleBuild[] GetAssetBundleBuilds(string sABResourcesPath)
@@ -66,7 +66,7 @@ public class AssetBundleBuilder
             {
                 continue;
             }
-            string sABName = StringUitls.WithoutExtension(sPath);
+            string sABName = StringUtils.WithoutExtension(sPath);
             AssetBundleBuild assetBundleBuild = new AssetBundleBuild();
             assetBundleBuild.assetBundleName = sABName;
             assetBundleBuild.assetNames = new string[] { sPath };

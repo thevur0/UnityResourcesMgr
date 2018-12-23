@@ -20,23 +20,23 @@ public class Test : MonoBehaviour
     {
         if (GUI.Button(new Rect(0,0,200,80), "LoadPrefab1"))
         {
-            int iHandle = ResourceMgr.Instance.InstantiatePrefabAsync("Cube.prefab", LoadPrefabCompleted);
+            int iHandle = ResourceMgr.Instance.InstantiatePrefabAsync("Test/Cube.prefab", LoadPrefabCompleted);
         }
 
         if (GUI.Button(new Rect(200, 0, 200, 80), "LoadPrefab2"))
         {
-            int iHandle = ResourceMgr.Instance.InstantiatePrefabAsync("Cube1.prefab", LoadPrefabCompleted1);
+            int iHandle = ResourceMgr.Instance.InstantiatePrefabAsync("Test/Cube1.prefab", LoadPrefabCompleted1);
         }
 
 
         if (GUI.Button(new Rect(0, 80, 200, 80), "LoadShader"))
         {
-            int iHandle = ResourceMgr.Instance.LoadAssetAsync<Shader>("Test2.shader", LoadShaderCompleted);
+            int iHandle = ResourceMgr.Instance.LoadAssetAsync<Shader>("Test/Test2.shader", LoadShaderCompleted);
         }
 
         if (GUI.Button(new Rect(0, 160, 200, 80), "LoadSV"))
         {
-            int iHandle = ResourceMgr.Instance.LoadAssetAsync<ShaderVariantCollection>("shadervar.shadervariants", LoadShadervariantCompleted);
+            int iHandle = ResourceMgr.Instance.LoadAssetAsync<ShaderVariantCollection>("Test/shadervar.shadervariants", LoadShadervariantCompleted);
         }
     }
 

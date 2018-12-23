@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1280778971
+CRC: 2956622500
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -15,7 +15,46 @@ AssetBundleManifest:
         Dependency_0: assets/abresources/test1
     Info_3:
       Name: assets/abresources/shadervar
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: assets/abresources/test2
     Info_4:
       Name: assets/abresources/test1
       Dependencies: {}
+    Info_5:
+      Name: assets/abresources/test2
+      Dependencies: {}
+    Info_6:
+      Name: assets/abresources/cube1
+      Dependencies:
+        Dependency_0: assets/abresources/new material 1
+    Info_7:
+      Name: assets/abresources/lua/common/baseclass
+      Dependencies: {}
+    Info_8:
+      Name: assets/abresources/lua/main
+      Dependencies: {}
+    Info_9:
+      Name: assets/abresources/lua/manager/managerinit
+      Dependencies: {}
+    Info_10:
+      Name: assets/abresources/lua/manager/rolemanager
+      Dependencies: {}
+    Info_11:
+      Name: assets/abresources/lua/manager/uimanager
+      Dependencies: {}
+    Info_12:
+      Name: assets/abresources/lua/ui/basecontrol
+      Dependencies: {}
+    Info_13:
+      Name: assets/abresources/lua/ui/baseview
+      Dependencies: {}
+    Info_14:
+      Name: assets/abresources/lua/ui/basewindow
+      Dependencies: {}
+    Info_15:
+      Name: assets/abresources/lua/ui/loginwnd
+      Dependencies: {}
+    Info_16:
+      Name: assets/abresources/new material 1
+      Dependencies:
+        Dependency_0: assets/abresources/test2

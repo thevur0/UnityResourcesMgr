@@ -18,7 +18,7 @@ public class GameSettingEditor
         if (resourceSetting == null)
             return;
         GameSetting gameSetting = ScriptableObject.CreateInstance<GameSetting>();
-        string sPath = StringUitls.PathCombine(resourceSetting.ResourcePath, "GameSetting.asset");
+        string sPath = StringUtils.PathCombine(resourceSetting.ResourcePath, "GameSetting.asset");
         AssetDatabase.CreateAsset(gameSetting, sPath);
         resourceSetting = null;
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using XLua;
 
 public class LuaMgr : Singleton<LuaMgr>
@@ -9,6 +10,8 @@ public class LuaMgr : Singleton<LuaMgr>
     LuaEnv m_luaEnv = null;
     Dictionary<string, LuaFunction> m_LuaFunction = new Dictionary<string, LuaFunction>();
     static string LuaDir { get; set; }
+
+
     public void Init(string sLuaDir)
     {
         LuaDir = sLuaDir;
@@ -18,15 +21,13 @@ public class LuaMgr : Singleton<LuaMgr>
 
     public void Start()
     {
-        DoFile("GameMain");
-    }
-    public void Update()
-    {
-        
+        DoFile("Main");
+        CallGlobalFun("GameStart");
     }
 
     public void Destroy()
     {
+        CallGlobalFun("GameEnd");
         if (m_luaEnv != null)
         {
             m_luaEnv.Dispose();
@@ -73,9 +74,24 @@ public class LuaMgr : Singleton<LuaMgr>
             }
         }
     }
+
+    private object[] CallGlobalFun(string sFunName,params object[] args)
+    {
+        LuaFunction luaFunction;
+        if (!m_LuaFunction.TryGetValue(sFunName, out luaFunction))
+        {
+            luaFunction = LuaEnv.Global.Get<LuaFunction>(sFunName);
+            m_LuaFunction.Add(sFunName, luaFunction);
+        }
+        if (luaFunction != null)
+        {
+            return luaFunction.Call(args);
+        }
+        return null;
+    }
     public static byte[] CustomLoader(ref string sFilePath)
     {
-        sFilePath += ".bytes";
-        return ResourceMgr.Instance.LoadLua(StringUitls.PathCombine(LuaDir, sFilePath));
+        sFilePath = StringUtils.Combine(StringUtils.Relpace(sFilePath, ".", "/"), ".bytes");
+        return ResourceMgr.Instance.LoadLua(StringUtils.PathCombine(LuaDir, sFilePath));
     }
 }
