@@ -89,7 +89,7 @@ public class Log
                 while (queue.Count > 0)
                 {
                     sLog = queue.Dequeue();
-                    IOUtils.WriteFile(StringUtils.PathCombine(LogPath, oper.Key), sLog);
+                    IOUtils.WriteFile(StringUtils.PathCombine(LogPath, oper.Key), sLog,true);
                 }
             }
         }

@@ -6,9 +6,9 @@ using LitJson;
 using UnityEngine.Networking;
 public class IOUtils
 {
-    static public void WriteFile(string sPath, string sContext)
+    static public void WriteFile(string sPath, string sContext, bool bAppend = false)
     {
-        StreamWriter sw = new StreamWriter(sPath,true);
+        StreamWriter sw = new StreamWriter(sPath, bAppend);
         sw.WriteLine(sContext);
         //sw.Close();
         sw.Dispose();
