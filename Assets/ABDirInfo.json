@@ -1,0 +1,16 @@
+{
+	"ABCombineDir": [
+		"Assets/ABResources/Config",
+		"Assets/ABResources/UI",
+		"Assets/ABResources/Lua"
+	],
+	"ABCombineSubDir" : [
+		"Assets/ABResources/Role"
+	],
+	"ABSeparateDir": [
+		"Assets/ABResources/UI/UILogin"
+	],
+	"ABIgnoreDir": [
+		"Assets/ABResources/Effect"
+	]
+}

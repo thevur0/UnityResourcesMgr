@@ -1,60 +1,36 @@
 ManifestFileVersion: 0
-CRC: 1289154279
+CRC: 3615925164
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: assets/abresources/gamesetting
+      Name: gamesetting.asset.ab
       Dependencies: {}
     Info_1:
-      Name: assets/abresources/lua/common/baseclass
+      Name: lua.ab
       Dependencies: {}
     Info_2:
-      Name: assets/abresources/lua/main
-      Dependencies: {}
+      Name: test$cube.prefab.ab
+      Dependencies:
+        Dependency_0: test$new material.mat.ab
     Info_3:
-      Name: assets/abresources/lua/manager/managerinit
-      Dependencies: {}
+      Name: test$cube1.prefab.ab
+      Dependencies:
+        Dependency_0: test$new material 1.mat.ab
     Info_4:
-      Name: assets/abresources/lua/manager/rolemanager
-      Dependencies: {}
+      Name: test$new material.mat.ab
+      Dependencies:
+        Dependency_0: test$test1.shader.ab
     Info_5:
-      Name: assets/abresources/lua/manager/uimanager
-      Dependencies: {}
+      Name: test$new material 1.mat.ab
+      Dependencies:
+        Dependency_0: test$test2.shader.ab
     Info_6:
-      Name: assets/abresources/lua/ui/basecontrol
-      Dependencies: {}
+      Name: test$shadervar.shadervariants.ab
+      Dependencies:
+        Dependency_0: test$test2.shader.ab
     Info_7:
-      Name: assets/abresources/lua/ui/baseview
+      Name: test$test1.shader.ab
       Dependencies: {}
     Info_8:
-      Name: assets/abresources/lua/ui/basewindow
-      Dependencies: {}
-    Info_9:
-      Name: assets/abresources/lua/ui/loginwnd
-      Dependencies: {}
-    Info_10:
-      Name: assets/abresources/test/cube
-      Dependencies:
-        Dependency_0: assets/abresources/test/new material
-    Info_11:
-      Name: assets/abresources/test/cube1
-      Dependencies:
-        Dependency_0: assets/abresources/test/new material 1
-    Info_12:
-      Name: assets/abresources/test/new material
-      Dependencies:
-        Dependency_0: assets/abresources/test/test1
-    Info_13:
-      Name: assets/abresources/test/new material 1
-      Dependencies:
-        Dependency_0: assets/abresources/test/test2
-    Info_14:
-      Name: assets/abresources/test/shadervar
-      Dependencies:
-        Dependency_0: assets/abresources/test/test2
-    Info_15:
-      Name: assets/abresources/test/test1
-      Dependencies: {}
-    Info_16:
-      Name: assets/abresources/test/test2
+      Name: test$test2.shader.ab
       Dependencies: {}

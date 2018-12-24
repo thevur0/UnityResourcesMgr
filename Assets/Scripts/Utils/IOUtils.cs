@@ -69,4 +69,16 @@ public class IOUtils
             str = ReadFile(sPath);
         return JsonMapper.ToObject<T>(str);
     }
+
+    static public void CreateDir(string targetPath)
+    {
+        if (targetPath.IndexOf('.') != -1)
+        {
+            targetPath = targetPath.Substring(0, targetPath.LastIndexOf('/'));
+        }
+        if (!Directory.Exists(targetPath))
+        {
+            Directory.CreateDirectory(targetPath);
+        }
+    }
 }
