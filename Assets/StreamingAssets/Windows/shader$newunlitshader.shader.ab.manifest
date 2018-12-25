@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3718043057
+CRC: 3505294871
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a9696d6fb4b470b81ad06f9128ebe5ef
+    Hash: e2c76bd097f63ed9e9559b74a73b09b2
   TypeTreeHash:
     serializedVersion: 2
     Hash: 7e9ee104d6bb707fb2602b751e6f78b1
@@ -12,5 +12,5 @@ ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 Assets:
-- Assets/ABResources/Test/Test2.shader
+- Assets/ABResources/Shader/NewUnlitShader.shader
 Dependencies: []

@@ -1,19 +1,21 @@
 ManifestFileVersion: 0
-CRC: 1154910119
+CRC: 362664491
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: acbe000c7a614741c86c98f26bb5aafa
+    Hash: dc0005bdabb6c4a6fa057b8c92c8ef4e
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 51a16e16d5113854a16091e54ae5bb0d
+    Hash: fe397485c3cec1106b49e9ff95e8f8a2
 HashAppended: 0
 ClassTypes:
 - Class: 21
+  Script: {instanceID: 0}
+- Class: 28
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
 Assets:
 - Assets/ABResources/Test/New Material 1.mat
 Dependencies:
-- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/test$test2.shader.ab
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/metalscratches_04_sg.psd.ab

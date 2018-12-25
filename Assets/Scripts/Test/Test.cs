@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 public class Test : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     GameObject @object = null;
     private void OnGUI()

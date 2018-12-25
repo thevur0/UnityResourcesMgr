@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 3615925164
+CRC: 868793284
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -9,28 +9,41 @@ AssetBundleManifest:
       Name: lua.ab
       Dependencies: {}
     Info_2:
+      Name: material$new material.mat.ab
+      Dependencies:
+        Dependency_0: shader$shadowcasttest.shader.ab
+    Info_3:
+      Name: metalscratches_04_sg.psd.ab
+      Dependencies: {}
+    Info_4:
+      Name: shader$newunlitshader.shader.ab
+      Dependencies: {}
+    Info_5:
+      Name: shader$shadowcasttest.shader.ab
+      Dependencies: {}
+    Info_6:
       Name: test$cube.prefab.ab
       Dependencies:
         Dependency_0: test$new material.mat.ab
-    Info_3:
+    Info_7:
       Name: test$cube1.prefab.ab
       Dependencies:
         Dependency_0: test$new material 1.mat.ab
-    Info_4:
+    Info_8:
       Name: test$new material.mat.ab
       Dependencies:
         Dependency_0: test$test1.shader.ab
-    Info_5:
+    Info_9:
       Name: test$new material 1.mat.ab
       Dependencies:
-        Dependency_0: test$test2.shader.ab
-    Info_6:
+        Dependency_0: metalscratches_04_sg.psd.ab
+    Info_10:
       Name: test$shadervar.shadervariants.ab
       Dependencies:
         Dependency_0: test$test2.shader.ab
-    Info_7:
+    Info_11:
       Name: test$test1.shader.ab
       Dependencies: {}
-    Info_8:
+    Info_12:
       Name: test$test2.shader.ab
       Dependencies: {}

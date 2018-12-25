@@ -56,7 +56,8 @@
 			Tags { "LightMode" = "ForwardBase" }
 			CGPROGRAM
 			#pragma vertex vertBase
-			#pragma fragment fragBase
+			//#pragma fragment fragBase
+			#pragma fragment frag
 
 			#pragma multi_compile_fwdbase
 			#pragma multi_compile_fog
@@ -88,49 +89,51 @@
 			//	return o;
 			//}
 
-			//fixed4 frag(v2f i) : SV_Target
-			//{
-			//	// sample the texture
-			//	fixed4 col = tex2D(_MainTex, i.uv);
-			//	
-			//	// apply fog
-			//	UNITY_APPLY_FOG(i.fogCoord, col);
-			//	return col;
-			//}
+			fixed4 frag(VertexOutputForwardBase i) : SV_Target
+			{
+				// sample the texture
+				fixed4 col = tex2D(_MainTex, i.tex);
+				float attn = LIGHT_ATTENUATION(i);
+				return fixed4(attn, attn, attn, 1);
+				
+				// apply fog
+				UNITY_APPLY_FOG(i.fogCoord, col);
+				return col;
+			}
 			ENDCG
 		}
-		//Pass
-		//{
-		//	Name "ShadowCaster"
-		//	Tags { "LightMode" = "ShadowCaster" }
-		//	CGPROGRAM
-		//	#include "UnityCG.cginc"
-		//	#pragma vertex vert
-		//	#pragma fragment frag
-		//	//#pragma multi_complie_shadowcaster
-		//	struct appdata
-		//	{
-		//		float4 vertex : POSITION;
-		//	};
+		Pass
+		{
+			Name "ShadowCaster"
+			Tags { "LightMode" = "ShadowCaster" }
+			CGPROGRAM
+			#include "UnityCG.cginc"
+			#pragma vertex vert
+			#pragma fragment frag
+			//#pragma multi_complie_shadowcaster
+			struct appdata
+			{
+				float4 vertex : POSITION;
+			};
 
-		//	struct v2f
-		//	{
-		//		V2F_SHADOW_CASTER;
-		//	};
+			struct v2f
+			{
+				V2F_SHADOW_CASTER;
+			};
 
-		//	v2f vert(appdata v)
-		//	{
-		//		v2f o;
-		//		TRANSFER_SHADOW_CASTER(o);
-		//		return o;
-		//	}
-		//	fixed4 frag(v2f i) : SV_Target
-		//	{
-		//		SHADOW_CASTER_FRAGMENT(i);
-		//	}
-		//	ENDCG
-		//}
+			v2f vert(appdata v)
+			{
+				v2f o;
+				TRANSFER_SHADOW_CASTER(o);
+				return o;
+			}
+			fixed4 frag(v2f i) : SV_Target
+			{
+				SHADOW_CASTER_FRAGMENT(i);
+			}
+			ENDCG
+		}
 		
 	}
-		FallBack "Diffuse"
+		//FallBack "Diffuse"
 }

@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
-CRC: 3718043057
+CRC: 4015735454
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a9696d6fb4b470b81ad06f9128ebe5ef
+    Hash: 5f5c58096c2ede9f8622d47449d1312a
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 7e9ee104d6bb707fb2602b751e6f78b1
+    Hash: f19fbf085e00d23fbc8d6cf7b345590b
 HashAppended: 0
 ClassTypes:
-- Class: 48
+- Class: 28
   Script: {instanceID: 0}
 Assets:
-- Assets/ABResources/Test/Test2.shader
+- Assets/ABResources/MetalScratches_04_SG.psd
 Dependencies: []
