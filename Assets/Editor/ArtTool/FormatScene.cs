@@ -14,6 +14,8 @@ public class FormatScene
         foreach (var obj in gameObjs)
         {
             SetGameObject(obj);
+            GameObject.Instantiate(obj);
+            Object.Destroy(obj);
         }
     }
 
@@ -24,7 +26,7 @@ public class FormatScene
         var renderer = gameObject.GetComponent<Renderer>();
         if (renderer != null)
         {
-            var mats = renderer.materials;
+            var mats = renderer.sharedMaterials;
             List<Material> list = new List<Material>();
             foreach (var mat in mats)
             {
@@ -33,7 +35,12 @@ public class FormatScene
                 newMat.SetTexture("_MainTex", tex);
                 list.Add(newMat);
             }
-            renderer.materials = list.ToArray();
+            renderer.sharedMaterials = list.ToArray();
+        }
+        var scripts = gameObject.GetComponents<MonoBehaviour>();
+        foreach (var script in scripts)
+        {
+            Object.DestroyImmediate(script);
         }
         var tran = gameObject.transform;
         for (int i = 0; i < tran.childCount; i++)
