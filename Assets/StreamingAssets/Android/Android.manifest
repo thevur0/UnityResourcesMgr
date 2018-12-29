@@ -1,0 +1,62 @@
+ManifestFileVersion: 0
+CRC: 2803904770
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: env.jpg.ab
+      Dependencies: {}
+    Info_1:
+      Name: gamesetting.asset.ab
+      Dependencies: {}
+    Info_2:
+      Name: lua.ab
+      Dependencies: {}
+    Info_3:
+      Name: material$test1.mat.ab
+      Dependencies:
+        Dependency_0: env.jpg.ab
+        Dependency_1: shader$shadowcasttest.shader.ab
+    Info_4:
+      Name: material$test2.mat.ab
+      Dependencies:
+        Dependency_0: env.jpg.ab
+        Dependency_1: shader$shadowcasttest.shader.ab
+    Info_5:
+      Name: shader$newunlitshader.shader.ab
+      Dependencies: {}
+    Info_6:
+      Name: shader$shadowcasttest.shader.ab
+      Dependencies: {}
+    Info_7:
+      Name: test$cube.prefab.ab
+      Dependencies:
+        Dependency_0: test$new material.mat.ab
+    Info_8:
+      Name: test$cube1.prefab.ab
+      Dependencies:
+        Dependency_0: test$new material 1.mat.ab
+    Info_9:
+      Name: test$gameobject.prefab.ab
+      Dependencies:
+        Dependency_0: test$jianlu_terrain_01.fbx.ab
+    Info_10:
+      Name: test$jianlu_terrain_01.fbx.ab
+      Dependencies: {}
+    Info_11:
+      Name: test$new material.mat.ab
+      Dependencies:
+        Dependency_0: test$test1.shader.ab
+    Info_12:
+      Name: test$new material 1.mat.ab
+      Dependencies:
+        Dependency_0: test$test2.shader.ab
+    Info_13:
+      Name: test$shadervar.shadervariants.ab
+      Dependencies:
+        Dependency_0: test$test2.shader.ab
+    Info_14:
+      Name: test$test1.shader.ab
+      Dependencies: {}
+    Info_15:
+      Name: test$test2.shader.ab
+      Dependencies: {}

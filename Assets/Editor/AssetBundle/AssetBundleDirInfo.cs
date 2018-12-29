@@ -108,8 +108,6 @@ public class AssetBundleDirInfo
         return sABName;
     }
 
-
-
     public AssetBundleBuild[] GetAssetBundleBuilds(string sABResourcesPath)
     {
         Dictionary<string, AssetBundleBuild> mapABBuild = new Dictionary<string, AssetBundleBuild>();
@@ -127,15 +125,30 @@ public class AssetBundleDirInfo
             ABNameTrans(ref sABName,sABResourcesPath);
             if (mapABBuild.TryGetValue(sABName, out abBuild))
             {
-                List<string> tempStrList = new List<string>(abBuild.assetNames);
-                tempStrList.Add(sPath);
-                abBuild.assetNames = tempStrList.ToArray();
-                mapABBuild[sABName] = abBuild;
+                HashSet<string> tempNameList = new HashSet<string>(abBuild.assetNames);
+                HashSet<string> tempAddressList = new HashSet<string>(abBuild.assetNames);
+                if (!tempNameList.Contains(sPath))
+                {
+                    //设置打包资源名
+                    tempNameList.Add(sPath);
+                    string[] sAssetNames = new string[tempNameList.Count];
+                    tempNameList.CopyTo(sAssetNames);
+                    abBuild.assetNames = sAssetNames;
+
+                    //设置从AB读文件索引名
+                    tempAddressList.Add(sPath.Substring(sABResourcesPath.Length + 1));
+                    string[] sAddresses = new string[tempAddressList.Count];
+                    tempAddressList.CopyTo(sAddresses);
+                    abBuild.addressableNames = sAddresses;
+
+                    mapABBuild[sABName] = abBuild;
+                }
             }
             else
             {
                 abBuild.assetBundleName = sABName;
                 abBuild.assetNames = new string[] { sPath };
+                abBuild.addressableNames = new string[] { sPath.Substring(sABResourcesPath.Length + 1) };
                 mapABBuild.Add(sABName, abBuild);
             }
         }

@@ -39,12 +39,13 @@ public class AssetBundleBuilder
         dicFileList.Add("AssetBundleManifest".ToLower(), sPlatformDir);
         foreach (var abBuild in assetBundleBuilds)
         {
-            foreach (var asset in abBuild.assetNames)
+            foreach (var asset in abBuild.addressableNames)
             {
                 string sAssetName = asset;
                 if (asset.IndexOf(ms_ResourceSetting.ResourcePath.ToLower()) == 0)
                 {
                     sAssetName = asset.Substring(ms_ResourceSetting.ResourcePath.Length + 1);
+                    sAssetName = asset;
                 }
                 
                 if (!dicFileList.ContainsKey(sAssetName))
@@ -56,27 +57,27 @@ public class AssetBundleBuilder
         IOUtils.WriteJson(sOutputPath, dicFileList);
     }
 
-    static private AssetBundleBuild[] GetAssetBundleBuilds(string sABResourcesPath)
-    {
-        string[] sAllGUIDs = AssetDatabase.FindAssets("",new string[] { sABResourcesPath });
-        List<AssetBundleBuild> m_listAssetBundleBuild = new List<AssetBundleBuild>();
-        foreach (string sGUID in sAllGUIDs)
-        {
+    //static private AssetBundleBuild[] GetAssetBundleBuilds(string sABResourcesPath)
+    //{
+    //    string[] sAllGUIDs = AssetDatabase.FindAssets("",new string[] { sABResourcesPath });
+    //    List<AssetBundleBuild> m_listAssetBundleBuild = new List<AssetBundleBuild>();
+    //    foreach (string sGUID in sAllGUIDs)
+    //    {
             
 
-            string sPath = AssetDatabase.GUIDToAssetPath(sGUID).ToLower();
-            if (AssetDatabase.IsValidFolder(sPath))
-            {
-                continue;
-            }
-            string sABName = StringUtils.WithoutExtension(sPath);
-            AssetBundleBuild assetBundleBuild = new AssetBundleBuild();
-            assetBundleBuild.assetBundleName = sABName;
-            assetBundleBuild.assetNames = new string[] { sPath };
-            m_listAssetBundleBuild.Add(assetBundleBuild);
-        }
-        return m_listAssetBundleBuild.ToArray();
-    }
+    //        string sPath = AssetDatabase.GUIDToAssetPath(sGUID).ToLower();
+    //        if (AssetDatabase.IsValidFolder(sPath))
+    //        {
+    //            continue;
+    //        }
+    //        string sABName = StringUtils.WithoutExtension(sPath);
+    //        AssetBundleBuild assetBundleBuild = new AssetBundleBuild();
+    //        assetBundleBuild.assetBundleName = sABName;
+    //        assetBundleBuild.assetNames = new string[] { sPath };
+    //        m_listAssetBundleBuild.Add(assetBundleBuild);
+    //    }
+    //    return m_listAssetBundleBuild.ToArray();
+    //}
 
 
 

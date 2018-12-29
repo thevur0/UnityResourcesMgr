@@ -21,7 +21,7 @@ public class Test : MonoBehaviour
     {
         if (GUI.Button(new Rect(0,0,200,80), "LoadPrefab1"))
         {
-            int iHandle = ResourceMgr.Instance.InstantiatePrefabAsync("Test/Cube.prefab", LoadPrefabCompleted);
+            int iHandle = ResourceMgr.Instance.InstantiatePrefabAsync("Test/GameObject.prefab", LoadPrefabCompleted);
         }
 
         if (GUI.Button(new Rect(200, 0, 200, 80), "LoadPrefab2"))
@@ -47,7 +47,7 @@ public class Test : MonoBehaviour
         @object = obj as GameObject;
         if (@object != null)
         {
-            @object.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
+            //@object.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
         }
     }
     void LoadPrefabCompleted1(int iHandle, UnityEngine.Object obj)

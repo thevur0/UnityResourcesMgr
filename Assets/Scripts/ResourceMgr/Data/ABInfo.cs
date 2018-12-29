@@ -21,7 +21,9 @@ public class ABInfo : Cache
     }
     static string AssetName(string sPath)
     {
-        return StringUtils.FileName(sPath, false);
+        //用索引名从AB里读文件
+        return sPath;
+        //return StringUtils.FileName(sPath, false);
     }
     public T LoadAsset<T>(string sAsset) where T : UnityEngine.Object
     {
