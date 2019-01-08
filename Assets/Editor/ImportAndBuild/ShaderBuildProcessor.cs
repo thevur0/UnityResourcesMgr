@@ -37,11 +37,9 @@ class ShaderBuildProcessor : IPreprocessShaders
         return true;
     }
 
-    public void OnProcessShader(
-        Shader shader, ShaderSnippetData snippet, IList<ShaderCompilerData> shaderVariants)
+    public void OnProcessShader(Shader shader, ShaderSnippetData snippet, IList<ShaderCompilerData> shaderVariants)
     {
         int inputShaderVariantCount = shaderVariants.Count;
-
         for (int i = 0; i < shaderVariants.Count; ++i)
         {
             bool keepVariant = KeepVariant(shader, snippet, shaderVariants[i]);

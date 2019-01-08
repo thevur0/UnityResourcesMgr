@@ -2,21 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Profiling;
-
+using UnityEngine.Rendering;
 public class Test : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
+        mCacheCommandBuffer = new CommandBuffer();
         
     }
-
+    CommandBuffer mCacheCommandBuffer= null;
     // Update is called once per frame
     void Update()
     {
-
+        if(m_mesh != null && m_material!=null && SystemInfo.supportsInstancing && m_material.enableInstancing)
+        {
+            Matrix4x4 mat = transform.localToWorldMatrix;
+            mat = mat* Matrix4x4.Scale(new Vector3(8,8,8));
+            Matrix4x4[] matrix4X4 = new Matrix4x4[] {
+                mat*Matrix4x4.Translate(new Vector3(0, 0, 0)),
+                mat*Matrix4x4.Translate(new Vector3(1, 0, 0)),
+                mat*Matrix4x4.Translate(new Vector3(0, 1, 0)),
+                mat*Matrix4x4.Translate(new Vector3(0, 0, 1)),
+            };
+            //foreach (var a in matrix4X4)
+            //{
+            //    Graphics.DrawMesh(m_mesh, a, m_material, 0);
+            //}
+            Graphics.DrawMeshInstanced(m_mesh, 0, m_material, matrix4X4);
+        }
+            
     }
-    GameObject @object = null;
+    GameObject m_object = null;
+    public Mesh m_mesh = null;
+    public Material m_material = null;
     private void OnGUI()
     {
         if (GUI.Button(new Rect(0,0,200,80), "LoadPrefab1"))
@@ -37,6 +56,14 @@ public class Test : MonoBehaviour
 
         if (GUI.Button(new Rect(0, 160, 200, 80), "LoadSV"))
         {
+            //ResourceMgr.Instance.LoadAssetAsync<ShaderVariantCollection>("Test/shadervariants.shadervariants", (ihandel, obj) => {
+            //    ShaderVariantCollection shaderVariantCollection = obj as ShaderVariantCollection;
+            //    if (shaderVariantCollection != null)
+            //    {
+            //        shaderVariantCollection.WarmUp();
+            //        Log.Info("shaderVariantCollection.WarmUp");
+            //    }
+            //});
             int iHandle = ResourceMgr.Instance.LoadAssetAsync<ShaderVariantCollection>("Test/shadervar.shadervariants", LoadShadervariantCompleted);
         }
     }
@@ -44,27 +71,38 @@ public class Test : MonoBehaviour
 
     void LoadPrefabCompleted(int iHandle, UnityEngine.Object obj)
     {
-        @object = obj as GameObject;
+        var @object = obj as GameObject;
         if (@object != null)
         {
-            //@object.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
+            @object.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
         }
     }
     void LoadPrefabCompleted1(int iHandle, UnityEngine.Object obj)
     {
-        GameObject @object1 = obj as GameObject;
-        if (@object1 != null)
+        m_object = obj as GameObject;
+        if (m_object != null)
         {
-            @object1.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
+            MeshFilter meshFilter = m_object.GetComponent<MeshFilter>();
+            if (meshFilter != null)
+            {
+                m_mesh = meshFilter.sharedMesh;
+            }
+            MeshRenderer meshRenderer = m_object.GetComponent<MeshRenderer>();
+            if (meshRenderer != null)
+            {
+                m_material = new Material(meshRenderer.sharedMaterial);
+            }
+            m_object.SetActive(false);
+            //@object.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
         }
     }
 
     void LoadShaderCompleted(int iHandle, UnityEngine.Object obj)
     {
         Shader shader = obj as Shader;
-        if (shader != null && @object != null)
+        if (shader != null && m_object != null)
         {
-            MeshRenderer meshRenderer = @object.GetComponent<MeshRenderer>();
+            MeshRenderer meshRenderer = m_object.GetComponent<MeshRenderer>();
             meshRenderer.material.shader = shader;
         }
     }

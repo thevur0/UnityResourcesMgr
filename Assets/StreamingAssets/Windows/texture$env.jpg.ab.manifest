@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 4282492924
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2ec5f955bb9bb7b5df6378152101cd77
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1e19a299b959f5b712c049d7eedf4f33
+HashAppended: 0
+ClassTypes:
+- Class: 89
+  Script: {instanceID: 0}
+Assets:
+- Assets/ABResources/Texture/env.jpg
+Dependencies: []

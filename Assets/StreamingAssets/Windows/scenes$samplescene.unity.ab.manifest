@@ -1,0 +1,50 @@
+ManifestFileVersion: 0
+CRC: 3638063956
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4147ad6decfea60edc72c7877c75d71c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5a5644610bbafb237a217ed9d76202d5
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 81
+  Script: {instanceID: 0}
+- Class: 104
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: dc90e948c1be9b74e98187d13752b345, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7d1f0b9ada0c6e0408d888ed37c3f8a1, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 157
+  Script: {instanceID: 0}
+Assets:
+- Assets/ABResources/Scenes/SampleScene.unity
+Dependencies:
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/test$cube.prefab.ab
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/test$gpuinstancing.mat.ab

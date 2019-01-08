@@ -3,7 +3,7 @@ CRC: 1368609313
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0f9f309866df265db5230e388ad9253a
+    Hash: b04545ad10fe1c1010b7e3322f0df8bb
   TypeTreeHash:
     serializedVersion: 2
     Hash: fe397485c3cec1106b49e9ff95e8f8a2
@@ -18,5 +18,5 @@ ClassTypes:
 Assets:
 - Assets/ABResources/Material/Test1.mat
 Dependencies:
-- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/env.jpg.ab
 - F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/shader$shadowcasttest.shader.ab
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/texture$env.jpg.ab

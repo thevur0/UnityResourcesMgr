@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 973170563
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 39d00378abbf15566d21e1a112f01dea
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 51a16e16d5113854a16091e54ae5bb0d
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/ABResources/Test/GPUInstancing.mat
+Dependencies:
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/shader$gpuinstancing.shader.ab
