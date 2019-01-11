@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 
-public class StatModelSW : ScriptableWizard {
+public class StatModelTriangles : ScriptableWizard {
 
     public string m_StatPath = string.Empty;
     void OnWizardCreate()// : 点击确定按钮调用此事件
@@ -58,10 +58,10 @@ public class StatModelSW : ScriptableWizard {
         }
     }
 
-    [MenuItem("Tools/StatMeshSW", false)]
+    [MenuItem("Tools/Check/StatMeshTriangles", false)]
     static public void Open()
     {
-        ScriptableWizard.DisplayWizard<StatModelSW>("StatMeshSW", "Stat");
+        ScriptableWizard.DisplayWizard<StatModelTriangles>("StatMeshTriangles", "Stat");
         
     }
 }

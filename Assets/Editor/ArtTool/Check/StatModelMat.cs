@@ -196,7 +196,7 @@ public class StatModelMat : ScriptableWizard {
         }
     }
 
-    [MenuItem("Tools/StatModelMat", false)]
+    [MenuItem("Tools/Check/StatModelMat", false)]
     static public void Open()
     {
         ScriptableWizard.DisplayWizard<StatModelMat>("StatModelMat", "Stat");

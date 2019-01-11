@@ -70,7 +70,7 @@ public class StatShaderVariant : ScriptableWizard {
         }
     }
 
-    [MenuItem("Tools/StatShaderVariant", false)]
+    [MenuItem("Tools/Check/StatShaderVariant", false)]
     static public void Open()
     {
         ScriptableWizard.DisplayWizard<StatShaderVariant>("StatShaderVariant", "Stat");

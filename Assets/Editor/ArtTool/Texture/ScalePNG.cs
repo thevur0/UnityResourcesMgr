@@ -67,7 +67,7 @@ public class ScalePNG : ScriptableWizard {
         }
     }
 
-    [MenuItem("Tools/放大成PNG", false)]
+    [MenuItem("Tools/Art/Texture/缩放PNG", false)]
     static public void Open()
     {
         ScriptableWizard.DisplayWizard<ScalePNG>("缩放成PNG", "缩放成PNG");

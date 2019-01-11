@@ -70,7 +70,7 @@ public class StaticBatching {
             AssetDatabase.CreateAsset(mesh, string.Format("Assets/{0}.mesh",mesh.name));
         }
     }
-    [MenuItem("Tools/StaticBatching",false)]
+    [MenuItem("Tools/Art/Mesh/StaticBatching",false)]
     static void DoStaticBatching()
     {
         Dictionary<string, BatchData> CombineMap = new Dictionary<string, BatchData>();

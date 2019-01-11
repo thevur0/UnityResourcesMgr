@@ -15,22 +15,22 @@ public class Test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(m_mesh != null && m_material!=null && SystemInfo.supportsInstancing && m_material.enableInstancing)
-        {
-            Matrix4x4 mat = transform.localToWorldMatrix;
-            mat = mat* Matrix4x4.Scale(new Vector3(8,8,8));
-            Matrix4x4[] matrix4X4 = new Matrix4x4[] {
-                mat*Matrix4x4.Translate(new Vector3(0, 0, 0)),
-                mat*Matrix4x4.Translate(new Vector3(1, 0, 0)),
-                mat*Matrix4x4.Translate(new Vector3(0, 1, 0)),
-                mat*Matrix4x4.Translate(new Vector3(0, 0, 1)),
-            };
-            //foreach (var a in matrix4X4)
-            //{
-            //    Graphics.DrawMesh(m_mesh, a, m_material, 0);
-            //}
-            Graphics.DrawMeshInstanced(m_mesh, 0, m_material, matrix4X4);
-        }
+        //if(m_mesh != null && m_material!=null && SystemInfo.supportsInstancing && m_material.enableInstancing)
+        //{
+        //    Matrix4x4 mat = transform.localToWorldMatrix;
+        //    mat = mat* Matrix4x4.Scale(new Vector3(8,8,8));
+        //    Matrix4x4[] matrix4X4 = new Matrix4x4[] {
+        //        mat*Matrix4x4.Translate(new Vector3(0, 0, 0)),
+        //        mat*Matrix4x4.Translate(new Vector3(1, 0, 0)),
+        //        mat*Matrix4x4.Translate(new Vector3(0, 1, 0)),
+        //        mat*Matrix4x4.Translate(new Vector3(0, 0, 1)),
+        //    };
+        //    //foreach (var a in matrix4X4)
+        //    //{
+        //    //    Graphics.DrawMesh(m_mesh, a, m_material, 0);
+        //    //}
+        //    Graphics.DrawMeshInstanced(m_mesh, 0, m_material, matrix4X4);
+        //}
             
     }
     GameObject m_object = null;

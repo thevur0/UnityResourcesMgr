@@ -26,4 +26,14 @@ public class UnityUtils
             return "test";
         }
     }
+
+    public static string CurQualityName()
+    {
+        return GetQualityName(QualitySettings.GetQualityLevel());
+    }
+
+    public static string GetQualityName(int iLevel)
+    {
+        return QualitySettings.names[iLevel];
+    }
 }

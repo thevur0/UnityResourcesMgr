@@ -91,7 +91,7 @@ public class ExportPNG : ScriptableWizard {
         }
     }
 
-    [MenuItem("Tools/导出PNG", false)]
+    [MenuItem("Tools/Art/Texture/导出PNG", false)]
     static public void Open()
     {
         ScriptableWizard.DisplayWizard<ExportPNG>("导出PNG", "导出PNG");
