@@ -1,4 +1,4 @@
-﻿Shader "Unlit/ShadowCastTest"
+﻿Shader "Test/ShadowCastTest"
 {
     Properties
     {

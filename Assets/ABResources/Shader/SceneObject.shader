@@ -1,16 +1,19 @@
-﻿Shader "Test/NewUnlitShader"
+﻿Shader "Unlit/SceneObject"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+		[Enum(UnityEngine.Rendering.CullMode)] _Cull("Cull",float) = 2.0
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Geometry" }
         LOD 100
-
+		Cull [_Cull]
         Pass
         {
+			Name "Forward"
+			Tags{ "LightMode" = "ForwardBase" }
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -54,5 +57,36 @@
             }
             ENDCG
         }
+
+		Pass
+		{
+			Name "ShadowCaster"
+			Tags { "LightMode" = "ShadowCaster" }
+			CGPROGRAM
+			#include "UnityCG.cginc"
+			#pragma vertex vert
+			#pragma fragment frag
+			struct appdata
+			{
+				float4 vertex : POSITION;
+			};
+
+			struct v2f
+			{
+				V2F_SHADOW_CASTER;
+			};
+
+			v2f vert(appdata v)
+			{
+				v2f o;
+				TRANSFER_SHADOW_CASTER(o);
+				return o;
+			}
+			fixed4 frag(v2f i) : SV_Target
+			{
+				SHADOW_CASTER_FRAGMENT(i);
+			}
+			ENDCG
+		}
     }
 }
