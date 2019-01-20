@@ -10,9 +10,15 @@ using UnityEngine.Rendering;
 class ShaderBuildProcessor : IPreprocessShaders
 {
     List<ShaderKeyword> m_DelKeyword = new List<ShaderKeyword>();
+    List<PassType> m_EnablePass = new List<PassType>();
 
     public ShaderBuildProcessor()
     {
+        m_EnablePass.Add(PassType.ForwardBase);
+        m_EnablePass.Add(PassType.ForwardAdd);
+        m_EnablePass.Add(PassType.Deferred);
+        m_EnablePass.Add(PassType.ShadowCaster);
+
         m_DelKeyword.Add(new ShaderKeyword("TIME_OFF9"));
         m_DelKeyword.Add(new ShaderKeyword("TIME_OFF8"));
         m_DelKeyword.Add(new ShaderKeyword("TIME_OFF7"));
@@ -28,8 +34,11 @@ class ShaderBuildProcessor : IPreprocessShaders
 
     public bool KeepVariant(Shader shader, ShaderSnippetData snippet, ShaderCompilerData shaderVariant)
     {
-
-        foreach( var keyword in m_DelKeyword)
+        if (!m_EnablePass.Contains(snippet.passType))
+        {
+            return false;
+        }
+        foreach ( var keyword in m_DelKeyword)
         {
             if (shaderVariant.shaderKeywordSet.IsEnabled(keyword))
                 return false;

@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 3821909917
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 956713c75a9f3464266cc1c30c7b9dc6
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 51a16e16d5113854a16091e54ae5bb0d
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/ABResources/Test/NoNormal.mat
+Dependencies:
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/shader.ab

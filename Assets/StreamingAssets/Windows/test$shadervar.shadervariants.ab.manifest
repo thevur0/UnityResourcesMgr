@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4200670388
+CRC: 3051944575
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c24bca54cbf08e3359b1097cb0dd6851
+    Hash: c12bb1679c4ec0c789ceba26385c69b4
   TypeTreeHash:
     serializedVersion: 2
     Hash: 7f0bffc1563fad4b76a0da6fdabbfa72
@@ -16,4 +16,4 @@ ClassTypes:
 Assets:
 - Assets/ABResources/Test/shadervar.shadervariants
 Dependencies:
-- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/shader$gpuinstancing.shader.ab
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/test$test2.shader.ab

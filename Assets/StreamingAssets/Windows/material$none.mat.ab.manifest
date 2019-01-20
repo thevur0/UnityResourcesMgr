@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 3634268059
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 98f24efb916a99ce01bf507cfbb2914b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 51a16e16d5113854a16091e54ae5bb0d
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/ABResources/Material/None.mat
+Dependencies:
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/shader.ab

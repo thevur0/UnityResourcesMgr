@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 973170563
+CRC: 998532392
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 39d00378abbf15566d21e1a112f01dea
+    Hash: 5d3b94fa9c2d8dc02fd1de8872b9aea7
   TypeTreeHash:
     serializedVersion: 2
     Hash: 51a16e16d5113854a16091e54ae5bb0d
@@ -16,4 +16,4 @@ ClassTypes:
 Assets:
 - Assets/ABResources/Test/GPUInstancing.mat
 Dependencies:
-- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/shader$gpuinstancing.shader.ab
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/test$shader$gpuinstancing.shader.ab

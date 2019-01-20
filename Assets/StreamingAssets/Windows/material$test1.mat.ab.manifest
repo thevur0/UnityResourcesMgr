@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1368609313
+CRC: 1940650991
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b04545ad10fe1c1010b7e3322f0df8bb
+    Hash: d6a1371a7ea4a3c7521a36643da3c3cb
   TypeTreeHash:
     serializedVersion: 2
     Hash: fe397485c3cec1106b49e9ff95e8f8a2
@@ -18,5 +18,5 @@ ClassTypes:
 Assets:
 - Assets/ABResources/Material/Test1.mat
 Dependencies:
-- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/shader$shadowcasttest.shader.ab
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/shader.ab
 - F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/texture$env.jpg.ab

@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 811703301
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c4382f596933aab2c17cd63584cf216b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fe397485c3cec1106b49e9ff95e8f8a2
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/ABResources/Material/SceneObject.mat
+Dependencies:
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/shader.ab

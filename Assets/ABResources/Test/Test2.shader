@@ -20,16 +20,16 @@
             #pragma fragment frag
             // make fog work
             #pragma multi_compile_fog
-			#pragma multi_compile TIME_OFF TIME_ON
-			#pragma multi_compile TIME_OFF1 TIME_ON1
-			#pragma multi_compile TIME_OFF2 TIME_ON2
-			#pragma multi_compile TIME_OFF3 TIME_ON3
-			#pragma multi_compile TIME_OFF4 TIME_ON4
-			#pragma multi_compile TIME_OFF5 TIME_ON5
-			#pragma multi_compile TIME_OFF6 TIME_ON6
-			#pragma multi_compile TIME_OFF7 TIME_ON7
-			#pragma multi_compile TIME_OFF8 TIME_ON8
-			#pragma multi_compile TIME_OFF9 TIME_ON9
+			#pragma multi_compile _ TIME_ON
+			#pragma multi_compile _ TIME_ON1
+			#pragma multi_compile _ TIME_ON2
+			#pragma multi_compile _ TIME_ON3
+			#pragma multi_compile _ TIME_ON4
+			#pragma multi_compile _ TIME_ON5
+			#pragma multi_compile _ TIME_ON6
+			#pragma multi_compile _ TIME_ON7
+			#pragma multi_compile _ TIME_ON8
+			#pragma multi_compile _ TIME_ON9
 
             #include "UnityCG.cginc"
 
@@ -81,16 +81,16 @@
 			#pragma fragment frag
 			// make fog work
 			#pragma multi_compile_fog
-			#pragma multi_compile TIME_OFF TIME_ON
-			#pragma multi_compile TIME_OFF1 TIME_ON1
-			#pragma multi_compile TIME_OFF2 TIME_ON2
-			#pragma multi_compile TIME_OFF3 TIME_ON3
-			#pragma multi_compile TIME_OFF4 TIME_ON4
-			#pragma multi_compile TIME_OFF5 TIME_ON5
-			#pragma multi_compile TIME_OFF6 TIME_ON6
-			#pragma multi_compile TIME_OFF7 TIME_ON7
-			#pragma multi_compile TIME_OFF8 TIME_ON8
-			#pragma multi_compile TIME_OFF9 TIME_ON9
+			#pragma multi_compile _ TIME_ON
+			#pragma multi_compile _ TIME_ON1
+			#pragma multi_compile _ TIME_ON2
+			#pragma multi_compile _ TIME_ON3
+			#pragma multi_compile _ TIME_ON4
+			#pragma multi_compile _ TIME_ON5
+			#pragma multi_compile _ TIME_ON6
+			#pragma multi_compile _ TIME_ON7
+			#pragma multi_compile _ TIME_ON8
+			#pragma multi_compile _ TIME_ON9
 
 			#include "UnityCG.cginc"
 
@@ -141,16 +141,16 @@
 			#pragma fragment frag
 			// make fog work
 			#pragma multi_compile_fog
-			#pragma multi_compile TIME_OFF TIME_ON
-			#pragma multi_compile TIME_OFF1 TIME_ON1
-			#pragma multi_compile TIME_OFF2 TIME_ON2
-			#pragma multi_compile TIME_OFF3 TIME_ON3
-			#pragma multi_compile TIME_OFF4 TIME_ON4
-			#pragma multi_compile TIME_OFF5 TIME_ON5
-			#pragma multi_compile TIME_OFF6 TIME_ON6
-			#pragma multi_compile TIME_OFF7 TIME_ON7
-			#pragma multi_compile TIME_OFF8 TIME_ON8
-			#pragma multi_compile TIME_OFF9 TIME_ON9
+			#pragma multi_compile _ TIME_ON
+			#pragma multi_compile _ TIME_ON1
+			#pragma multi_compile _ TIME_ON2
+			#pragma multi_compile _ TIME_ON3
+			#pragma multi_compile _ TIME_ON4
+			#pragma multi_compile _ TIME_ON5
+			#pragma multi_compile _ TIME_ON6
+			#pragma multi_compile _ TIME_ON7
+			#pragma multi_compile _ TIME_ON8
+			#pragma multi_compile _ TIME_ON9
 
 			#include "UnityCG.cginc"
 

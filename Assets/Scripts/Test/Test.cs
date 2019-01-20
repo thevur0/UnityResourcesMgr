@@ -9,6 +9,7 @@ public class Test : MonoBehaviour
     void Start()
     {
         mCacheCommandBuffer = new CommandBuffer();
+        Shader.EnableKeyword("TIME_ON");
         
     }
     CommandBuffer mCacheCommandBuffer= null;
@@ -45,7 +46,7 @@ public class Test : MonoBehaviour
 
         if (GUI.Button(new Rect(200, 0, 200, 80), "LoadPrefab2"))
         {
-            int iHandle = ResourceMgr.Instance.InstantiatePrefabAsync("Test/Cube1.prefab", LoadPrefabCompleted1);
+            int iHandle = ResourceMgr.Instance.InstantiatePrefabAsync("Test/Cube.prefab", LoadPrefabCompleted1);
         }
 
 
@@ -92,7 +93,7 @@ public class Test : MonoBehaviour
             {
                 m_material = new Material(meshRenderer.sharedMaterial);
             }
-            m_object.SetActive(false);
+            //m_object.SetActive(false);
             //@object.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
         }
     }

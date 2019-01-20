@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1871268025
+CRC: 182447615
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8f3a0d888b3df870d7a9e136351af549
+    Hash: eee3665b36e280e916acfa480910a69b
   TypeTreeHash:
     serializedVersion: 2
     Hash: 43917c7e82ed3ae0a408b3ea37ec80f7
@@ -26,4 +26,4 @@ ClassTypes:
 Assets:
 - Assets/ABResources/Test/Cube.prefab
 Dependencies:
-- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/test$new material.mat.ab
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/test$normal.mat.ab

@@ -16,6 +16,8 @@ public class MainInspector : Editor
     }
     public override void OnInspectorGUI()
     {
+        if (m_So == null)
+            return;
         
         EditorGUILayout.BeginVertical();
         SerializedProperty sp = m_So.FindProperty("ResMode");

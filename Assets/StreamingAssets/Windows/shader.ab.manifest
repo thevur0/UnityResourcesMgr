@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 4020286633
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c5b31f92fe068106db1ae6cbe40314d7
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7e9ee104d6bb707fb2602b751e6f78b1
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/ABResources/Shader/ShadowCastTest.shader
+- Assets/ABResources/Shader/None.shader
+- Assets/ABResources/Shader/SceneObject.shader
+Dependencies: []

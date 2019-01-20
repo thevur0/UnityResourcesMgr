@@ -1,5 +1,6 @@
 {
 	"ABCombineDir": [
+		"Assets/ABResources/Shader",
 		"Assets/ABResources/Config",
 		"Assets/ABResources/UI",
 		"Assets/ABResources/Lua"

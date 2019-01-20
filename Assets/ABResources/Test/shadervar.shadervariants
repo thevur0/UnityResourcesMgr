@@ -8,8 +8,6 @@ ShaderVariantCollection:
   m_PrefabAsset: {fileID: 0}
   m_Name: shadervar
   m_Shaders:
-  - first: {fileID: 4800000, guid: 134c9e56c22b9454bac6e7318e2edce9, type: 3}
+  - first: {fileID: 4800000, guid: ced8c84d1b82140499f8f7bd266d4f7f, type: 3}
     second:
-      variants:
-      - keywords: INSTANCING_ON
-        passType: 0
+      variants: []

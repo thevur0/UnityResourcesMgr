@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 4144240749
+CRC: 3321359319
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b8a0b90253274c3e7c6a9d29dc4c6a70
+    Hash: fdd3ad174f750ca41983cc4f8e89c8d4
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 4687c333af1d8b03f71e79112f80ff21
+    Hash: 05e1b402a0a2691cc25540954a3add93
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -33,20 +33,9 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 104
   Script: {instanceID: 0}
-- Class: 108
-  Script: {instanceID: 0}
-- Class: 114
-  Script: {fileID: 11500000, guid: dc90e948c1be9b74e98187d13752b345, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 7d1f0b9ada0c6e0408d888ed37c3f8a1, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: e5ffcbd32fff73341938056ad693ea99, type: 3}
-- Class: 115
-  Script: {instanceID: 0}
-- Class: 136
-  Script: {instanceID: 0}
 - Class: 157
   Script: {instanceID: 0}
 Assets:
 - Assets/ABResources/Scenes/SampleScene.unity
-Dependencies: []
+Dependencies:
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/material$sceneobject.mat.ab
