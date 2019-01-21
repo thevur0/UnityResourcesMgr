@@ -43,45 +43,58 @@
 			//#pragma multi_compile_fwdbase_fullshadows
             // make fog work
             #pragma multi_compile_fog
-			//#pragma shader_feature NORMALMAP_ON 
-			#pragma multi_compile _ NORMALMAP_ON
-			#pragma multi_compile _ TIME_ON
-			//#define TIME_ON 1
 
-			
+			#pragma multi_compile _ LIGHTMAP_ON
+			#pragma multi_compile _ SHADOWS_SHADOWMASK
+			//#pragma multi_compile _ NORMALMAP_ON
+			//#pragma multi_compile _ TIME_ON
 
-			//#define SHADOWS_SHADOWMASK 1
-			//#define SHADOWS_SCREEN 1
 
             #include "UnityCG.cginc"
 			#include "AutoLight.cginc"
+			#include "Common.cginc"
             struct appdata
             {
                 float4 vertex : POSITION;
                 float2 uv : TEXCOORD0;
+				float2 uv1: TEXCOORD1;
+				float3 normal: NORMAL;
+				float4 color : COLOR;
             };
 
             struct v2f
             {
                 float2 uv : TEXCOORD0;
-				UNITY_FOG_COORDS(1)
+				float2 lightmapUV : TEXCOORD1;
 				float4 worldPos : TEXCOORD2;
-				UNITY_LIGHTING_COORDS(3,4)
-                float4 vertex : SV_POSITION;
+				UNITY_FOG_COORDS(9)
+				unityShadowCoord4 _ShadowCoord:TEXCOORD3;
+
+				float3 worldNormal: NORMAL;
+                float4 pos : SV_POSITION;
+				float4 vertexColor:COLOR;
+				
 				
             };
-
+			
             sampler2D _MainTex;
             float4 _MainTex_ST;
 			fixed _MetallicPower;
 			fixed _CutOff;
+			
             v2f vert (appdata v)
             {
                 v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.pos = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				o.worldPos = mul(unity_ObjectToWorld, v.vertex);
+				o.worldNormal = CalcWorldNormal(v.normal);
+				o.vertexColor = v.color;
 
+#if  defined(LIGHTMAP_ON)
+				o.lightmapUV = CalcLightmapUV(v.uv1.xy);
+#endif
+				TRANSFER_SHADOW(o);//o._ShadowCoord = mul(unity_WorldToShadow[0], o.worldPos);
                 UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
@@ -90,11 +103,21 @@
             {
                 // sample the texture
 				fixed4 col = tex2D(_MainTex, i.uv);
-				//float fAtten = READ_SHADOW_COORDS(i);
-				float fAtten = UnityComputeForwardShadows(i._ShadowCoord.xy,i.worldPos,READ_SHADOW_COORDS(i));
 
-				col = float4(fAtten, fAtten, fAtten, 1);
+				//float fAtten = UnityComputeForwardShadows(i._ShadowCoord.xy,i.worldPos,READ_SHADOW_COORDS(i));
 
+				float4 lightmap = 0;
+				float shadowmask = 0;
+				float shadowmap = 0;
+
+#if  defined(LIGHTMAP_ON)
+				lightmap = GetLightmap(i.lightmapUV);
+				shadowmask = GetShadowMask(i.lightmapUV);
+				shadowmap = shadowmask;
+#else
+
+#endif
+				return col* shadowmap*GetLight();
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;
