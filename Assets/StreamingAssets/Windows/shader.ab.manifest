@@ -1,18 +1,21 @@
 ManifestFileVersion: 0
-CRC: 4020286633
+CRC: 1068127677
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c5b31f92fe068106db1ae6cbe40314d7
+    Hash: f689151a5b29c74d615d2eabc1360620
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 7e9ee104d6bb707fb2602b751e6f78b1
+    Hash: d1f8190f465e6d3099ac0770229e4237
 HashAppended: 0
 ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
+- Class: 109
+  Script: {instanceID: 0}
 Assets:
 - Assets/ABResources/Shader/ShadowCastTest.shader
+- Assets/ABResources/Shader/Common.cginc
 - Assets/ABResources/Shader/None.shader
 - Assets/ABResources/Shader/SceneObject.shader
 Dependencies: []

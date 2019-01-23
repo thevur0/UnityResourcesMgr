@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 182447615
+CRC: 92564169
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: eee3665b36e280e916acfa480910a69b
+    Hash: 3161465190ab28586a548cf348bd5797
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 43917c7e82ed3ae0a408b3ea37ec80f7
+    Hash: e4cc936ded1e190af8476247f49c213c
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -23,7 +23,14 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 65
   Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 03cb43d64a187754fb404b0d8fcfb7a7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f833f55842885074aad58476ed9a84f3, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
 Assets:
 - Assets/ABResources/Test/Cube.prefab
 Dependencies:
+- F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/data$gamedata.asset.ab
 - F:/UnityDemo/Unity2018.3b12/Assets/StreamingAssets/Windows/test$normal.mat.ab

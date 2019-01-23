@@ -1,88 +1,98 @@
 ManifestFileVersion: 0
-CRC: 3720981964
+CRC: 1728742939
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: gamesetting.asset.ab
+      Name: data$gamedata.asset.ab
       Dependencies: {}
     Info_1:
-      Name: lua.ab
+      Name: gamesetting.asset.ab
       Dependencies: {}
     Info_2:
+      Name: lua.ab
+      Dependencies: {}
+    Info_3:
       Name: material$none.mat.ab
       Dependencies:
         Dependency_0: shader.ab
-    Info_3:
+    Info_4:
       Name: material$sceneobject.mat.ab
       Dependencies:
         Dependency_0: shader.ab
-    Info_4:
+    Info_5:
       Name: material$test1.mat.ab
       Dependencies:
         Dependency_0: shader.ab
         Dependency_1: texture$env.jpg.ab
-    Info_5:
+    Info_6:
       Name: material$test2.mat.ab
       Dependencies:
         Dependency_0: shader.ab
         Dependency_1: texture$env.jpg.ab
-    Info_6:
+    Info_7:
       Name: scenes$samplescene.unity.ab
       Dependencies:
         Dependency_0: material$sceneobject.mat.ab
-    Info_7:
+    Info_8:
+      Name: scenes$samplescene$lightmap-0_comp_light.exr.ab
+      Dependencies: {}
+    Info_9:
+      Name: scenes$samplescene$lightmap-0_comp_shadowmask.png.ab
+      Dependencies: {}
+    Info_10:
       Name: shader.ab
       Dependencies: {}
-    Info_8:
+    Info_11:
       Name: test$cube.prefab.ab
       Dependencies:
-        Dependency_0: test$normal.mat.ab
-    Info_9:
+        Dependency_0: data$gamedata.asset.ab
+        Dependency_1: test$normal.mat.ab
+    Info_12:
       Name: test$cube1.prefab.ab
       Dependencies:
         Dependency_0: test$gpuinstancing.mat.ab
-    Info_10:
+    Info_13:
       Name: test$gameobject.prefab.ab
       Dependencies:
         Dependency_0: test$jianlu_terrain_01.fbx.ab
-    Info_11:
+    Info_14:
       Name: test$gpuinstancing.mat.ab
       Dependencies:
         Dependency_0: test$shader$gpuinstancing.shader.ab
-    Info_12:
+    Info_15:
       Name: test$jianlu_terrain_01.fbx.ab
       Dependencies: {}
-    Info_13:
+    Info_16:
       Name: test$nonormal.mat.ab
       Dependencies:
         Dependency_0: shader.ab
-    Info_14:
+    Info_17:
       Name: test$normal.mat.ab
       Dependencies:
         Dependency_0: shader.ab
-    Info_15:
+    Info_18:
       Name: test$shader$gpuinstancing.shader.ab
       Dependencies: {}
-    Info_16:
+    Info_19:
       Name: test$shader$newunlitshader.shader.ab
       Dependencies: {}
-    Info_17:
+    Info_20:
       Name: test$shader$shadervariants.shadervariants.ab
       Dependencies:
         Dependency_0: test$shader$gpuinstancing.shader.ab
-    Info_18:
+    Info_21:
       Name: test$shadervar.shadervariants.ab
       Dependencies:
         Dependency_0: test$test2.shader.ab
-    Info_19:
+    Info_22:
       Name: test$test1.shader.ab
       Dependencies: {}
-    Info_20:
+    Info_23:
       Name: test$test2.shader.ab
       Dependencies: {}
-    Info_21:
+    Info_24:
       Name: texture$env.jpg.ab
       Dependencies: {}
-    Info_22:
+    Info_25:
       Name: texture$test.png.ab
       Dependencies: {}

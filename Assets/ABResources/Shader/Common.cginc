@@ -20,6 +20,10 @@ float4 CalcScreenPos(float4 pos)
 {
 	return ComputeScreenPos(pos);
 }
+float4 CalcWorldPos(float4 pos)
+{
+	return mul(unity_ObjectToWorld, pos);
+}
 
 float4 GetLight()
 {
@@ -42,16 +46,20 @@ float4 GetDepthMap(float2 uv)
 	return SAMPLE_RAW_DEPTH_TEXTURE(_DepthTex, uv);
 }
 
-UNITY_DECLARE_SHADOWMAP(_ShadowMapTexture);
-float4 GetShadowMap(float4 worldPos)
+#if defined(SHADOWS_SCREEN)
+UNITY_DECLARE_SCREENSPACE_SHADOWMAP(_ScreenSpaceShadowMapTexture);
+float4 GetShadowMap(float4 shadowcoord)
 {
-	return UNITY_SAMPLE_SHADOW(_ShadowMapTexture, worldPos);
+	return UNITY_SAMPLE_SCREEN_SHADOW(_ScreenSpaceShadowMapTexture, shadowcoord);
+}
+#else
+UNITY_DECLARE_SHADOWMAP(_ShadowMapTexture);
+float4 GetShadowMap(float4 shadowcoord)
+{
+	fixed shadow = UNITY_SAMPLE_SHADOW(_ShadowMapTexture, shadowcoord);
+	return shadow;
 }
 
-UNITY_DECLARE_SCREENSPACE_SHADOWMAP(_ScreenShadowMapTexture);
-float4 GetScreenShadowMap(float4 shadowcoord)
-{
-	return UNITY_SAMPLE_SCREEN_SHADOW(_ScreenShadowMapTexture, shadowcoord);
-}
+#endif
 
 #endif

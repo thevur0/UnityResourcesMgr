@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 451890425
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3f76311358824552bd5bf536d1790b9a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f19fbf085e00d23fbc8d6cf7b345590b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/ABResources/Scenes/SampleScene/Lightmap-0_comp_shadowmask.png
+Dependencies: []

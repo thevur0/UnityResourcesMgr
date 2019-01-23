@@ -37,6 +37,7 @@ public class Test : MonoBehaviour
     GameObject m_object = null;
     public Mesh m_mesh = null;
     public Material m_material = null;
+    
     private void OnGUI()
     {
         if (GUI.Button(new Rect(0,0,200,80), "LoadPrefab1"))

@@ -46,6 +46,8 @@
 
 			#pragma multi_compile _ LIGHTMAP_ON
 			#pragma multi_compile _ SHADOWS_SHADOWMASK
+			#pragma multi_compile _ SHADOWS_SCREEN
+#define SHADOWS_SCREEN 1
 			//#pragma multi_compile _ NORMALMAP_ON
 			//#pragma multi_compile _ TIME_ON
 
@@ -87,14 +89,14 @@
                 v2f o;
                 o.pos = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-				o.worldPos = mul(unity_ObjectToWorld, v.vertex);
+				o.worldPos = CalcWorldPos(v.vertex);
 				o.worldNormal = CalcWorldNormal(v.normal);
 				o.vertexColor = v.color;
 
 #if  defined(LIGHTMAP_ON)
 				o.lightmapUV = CalcLightmapUV(v.uv1.xy);
 #endif
-				TRANSFER_SHADOW(o);//o._ShadowCoord = mul(unity_WorldToShadow[0], o.worldPos);
+				TRANSFER_SHADOW(o);//o._ShadowCoord = mul(unity_WorldToShadow[0], mul(unity_ObjectToWorld, v.vertex));
                 UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
@@ -115,7 +117,8 @@
 				shadowmask = GetShadowMask(i.lightmapUV);
 				shadowmap = shadowmask;
 #else
-
+				float4 screenpos = CalcScreenPos(i.pos);
+				shadowmap = unitySampleShadow(i._ShadowCoord);
 #endif
 				return col* shadowmap*GetLight();
                 // apply fog
