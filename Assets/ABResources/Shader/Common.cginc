@@ -6,9 +6,9 @@
 #include "UnityLightingCommon.cginc"
 
 
-float2 CalcLightmapUV(float2 uv1)
+float4 CalcLightmapUV(float2 uv1)
 {
-	return  uv1.xy * unity_LightmapST.xy + unity_LightmapST.zw;
+	return  float4(uv1.xy * unity_LightmapST.xy + unity_LightmapST.zw,0,0);
 }
 
 float3 CalcWorldNormal(float3 normal)

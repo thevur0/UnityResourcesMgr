@@ -47,14 +47,15 @@
 			#pragma multi_compile _ LIGHTMAP_ON
 			#pragma multi_compile _ SHADOWS_SHADOWMASK
 			#pragma multi_compile _ SHADOWS_SCREEN
-#define SHADOWS_SCREEN 1
+			#pragma multi_compile _ DIRECTIONAL
+			#pragma multi_compile _ LIGHTPROBE_SH
 			//#pragma multi_compile _ NORMALMAP_ON
 			//#pragma multi_compile _ TIME_ON
-
-
+#define SHADOWS_SCREEN
             #include "UnityCG.cginc"
 			#include "AutoLight.cginc"
 			#include "Common.cginc"
+			#include "UnityPBSLighting.cginc"
             struct appdata
             {
                 float4 vertex : POSITION;
@@ -67,7 +68,7 @@
             struct v2f
             {
                 float2 uv : TEXCOORD0;
-				float2 lightmapUV : TEXCOORD1;
+				float4 lightmapUV : TEXCOORD1;
 				float4 worldPos : TEXCOORD2;
 				UNITY_FOG_COORDS(9)
 				unityShadowCoord4 _ShadowCoord:TEXCOORD3;
@@ -84,6 +85,49 @@
 			fixed _MetallicPower;
 			fixed _CutOff;
 			
+
+
+			UnityGI UnityGICalc(v2f i)
+			{
+				UnityLight light;
+				light.color = _LightColor0.rgb;
+				light.dir = _WorldSpaceCameraPos.xyz;
+
+				UnityGIInput d;
+				d.light = light;
+				d.worldPos = i.worldPos;
+				d.worldViewDir = UnityWorldSpaceViewDir(i.worldPos);
+#if defined(LIGHTMAP_ON)
+				d.ambient = 0;
+				d.lightmapUV = i.lightmapUV;
+#else
+				d.ambient = i.lightmapUV.rgb;
+				d.lightmapUV = 0;
+#endif
+
+				d.atten = UnityComputeForwardShadows(d.lightmapUV, i.worldPos, (READ_SHADOW_COORDS(i)));
+
+
+				d.boxMax[0] = unity_SpecCube0_BoxMax;
+				d.boxMax[1] = unity_SpecCube1_BoxMax;
+				d.boxMin[0] = unity_SpecCube0_BoxMin;
+				d.boxMin[1] = unity_SpecCube1_BoxMin;
+				d.probePosition[0] = unity_SpecCube0_ProbePosition;
+				d.probePosition[1] = unity_SpecCube1_ProbePosition;
+				d.probeHDR[0] = unity_SpecCube0_HDR;
+				d.probeHDR[1] = unity_SpecCube1_HDR;
+
+				Unity_GlossyEnvironmentData g;
+				g.roughness = 1;
+				g.reflUVW = 1;
+
+				UnityGI gi = UnityGlobalIllumination(d, 1, i.worldNormal, g);
+				return gi;
+			}
+
+
+
+
             v2f vert (appdata v)
             {
                 v2f o;
@@ -101,29 +145,16 @@
                 return o;
             }
 
+
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-				fixed4 col = tex2D(_MainTex, i.uv);
+				fixed4 diffuseColor = tex2D(_MainTex, i.uv);
+			//return diffuseColor;
 
-				//float fAtten = UnityComputeForwardShadows(i._ShadowCoord.xy,i.worldPos,READ_SHADOW_COORDS(i));
 
-				float4 lightmap = 0;
-				float shadowmask = 0;
-				float shadowmap = 0;
-
-#if  defined(LIGHTMAP_ON)
-				lightmap = GetLightmap(i.lightmapUV);
-				shadowmask = GetShadowMask(i.lightmapUV);
-				shadowmap = shadowmask;
-#else
-				float4 screenpos = CalcScreenPos(i.pos);
-				shadowmap = unitySampleShadow(i._ShadowCoord);
-#endif
-				return col* shadowmap*GetLight();
-                // apply fog
-                UNITY_APPLY_FOG(i.fogCoord, col);
-                return col;
+				UnityGI gi = UnityGICalc(i);
+				return float4((gi.light.color + gi.indirect.diffuse) * diffuseColor,1);
             }
             ENDCG
         }
